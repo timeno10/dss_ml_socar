@@ -208,7 +208,7 @@ def make_graph(column):
 
 make_graph('accident_hour')
 ```
-<img src="https://user-images.githubusercontent.com/71831714/104718424-33158700-576e-11eb-83f4-57562b70928a.png" width='600'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105041042-dedc1100-5aa5-11eb-98f2-f05fed413e7a.png" width='600'></img>
 
 ## Preprocessing 
 
@@ -228,6 +228,7 @@ make_graph('accident_hour')
 ### 샘플링
 imbalanced data 처리를 위한 다양한 샘플링 기법 시도 
 
+<img src="https://user-images.githubusercontent.com/71831714/105041213-0d59ec00-5aa6-11eb-93e4-5d3eaedb94c2.png" width='500'></img>
 
 - RandomOverSampler
 - SMOTE 
@@ -249,6 +250,7 @@ imbalanced data 처리를 위한 다양한 샘플링 기법 시도
 
 ### 하이퍼파라미터 튜닝 
  - 모델별 최적성능을 위해 아래와 같이 파라미터 튜닝 작업을 시도 
+ 
 <img src="https://user-images.githubusercontent.com/71831714/105039918-8bb58e80-5aa4-11eb-975a-a31494eae022.png" width='500'></img>
 
 
