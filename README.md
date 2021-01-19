@@ -4,14 +4,14 @@
 ## 개요 
 
 ### 1.1  프로젝트 주제
-- 보험금을 목적으로 한 사기 집단의 렌터카를 이용한 사기 수법이 기승함. 
+- 보험금을 목적으로 한 렌터카 사고 사기건이 증가함 
 - 이에 쏘카의 사고 데이터를 통해 Fraud 유저에 대한 예측을 실현하고자 함 
 
 ### 1.2 프로젝트 진행순서
-1. DATA SET 
-2. EDA 
-3. 데이터 전처리 및 가공 
-4. 모델 학습/성능 평가 
+1. EDA 
+2. 데이터 전처리 및 가공 
+3. 모듈화 
+4. 모델 학습 & 성능 평가 
 5. 결론 
  
 ### 1.3 시작에 앞서
@@ -39,45 +39,28 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import sweetviz as sv
 from statsmodels.stats.outliers_influence import variance_inflation_factor
-
 # scaler 
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
-
 # models
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from lightgbm import LGBMClassifier
 from sklearn.svm import LinearSVC
-
 # pipeline
 from sklearn.pipeline import Pipeline 
-
 # resampling
 from imblearn.over_sampling import SMOTE, ADASYN, RandomOverSampler
 from imblearn.under_sampling import RandomUnderSampler, CondensedNearestNeighbour, NearMiss
 from imblearn.combine import SMOTETomek, SMOTEENN
-
 # model selection
 from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_predict, StratifiedKFold, KFold, cross_val_score
-
 # scoring
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score, roc_auc_score
-
 # pca
 from sklearn.decomposition import PCA
-
-import warnings
-warnings.filterwarnings('ignore')
-
-from matplotlib import font_manager
-# 한글설정(MAC)
-f_path = '/Library/Fonts/NanumGothic.ttf'
-font_manager.FontProperties(fname=f_path).get_name()
-from matplotlib import rc
-rc('font', family = 'NanumGothic')
-
 # 한글 설정 (WIN)
+from matplotlib import font_manager
 # from matplotlib import rc
 # plt.rcParams['axes.unicode_minus'] = False
 # f_path= "C:/Windows/Fonts/malgun.ttf"
@@ -85,6 +68,8 @@ rc('font', family = 'NanumGothic')
 # rc('font', family =font_name)
 # plt.rc('font', family='Malgun Gothic')
 
+import warnings
+warnings.filterwarnings('ignore')
 pd.options.display.float_format = '{:.5f}'.format
 ```
 
@@ -92,7 +77,7 @@ pd.options.display.float_format = '{:.5f}'.format
 - 본 프로젝트는 쏘카로부터 데이터를 제공받아 진행된 프로젝트입니다. 
 ```python
 # 1. 데이터 불러오기 
-socar_df = pd.read_csv("0. raw_data/insurance_fraud_detect_data.csv")
+socar_df = pd.read_csv("insurance_fraud_detect_data.csv")
 pd.set_option('display.max_columns', len(socar_df.columns))
 socar = socar_df.copy()
 ```
@@ -128,7 +113,6 @@ t1 = socar.loc[socar['fraud_YN']==1]
 sns.set_style('whitegrid')
 plt.figure()
 fig,ax = plt.subplots(7,4,figsize=(16,28))
-
 
 for i, feature in enumerate(var):
     plt.subplot(7,4,i+1)
@@ -176,7 +160,6 @@ def make_graph(column):
     t0 = socar[socar['fraud_YN']==0]
     t1 = socar[socar['fraud_YN']==1]
 
-
     plt.subplot(2,2,1)
     ax0 = sns.countplot(column, data=socar[socar['fraud_YN']==0])
     for p in ax0.patches:
@@ -209,6 +192,12 @@ def make_graph(column):
 make_graph('accident_hour')
 ```
 <img src="https://user-images.githubusercontent.com/71831714/105041042-dedc1100-5aa5-11eb-98f2-f05fed413e7a.png" width='600'></img>
+
+## Modulization
+ - 코드의 간결화를 위해 모듈화 진행
+ 
+<img src="https://user-images.githubusercontent.com/71831714/105041949-01baf500-5aa7-11eb-98de-67aeb1a13db2.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105041951-02ec2200-5aa7-11eb-9732-d91191eb0f26.png" width='400'></img>
 
 ## Preprocessing 
 
@@ -249,9 +238,9 @@ imbalanced data 처리를 위한 다양한 샘플링 기법 시도
 - LinearSVC 
 
 ### 하이퍼파라미터 튜닝 
- - 모델별 최적성능을 위해 아래와 같이 파라미터 튜닝 작업을 시도 
+ - 최적의 파라미터 값을 찾기 위해 교차 검증 사용 
  
-<img src="https://user-images.githubusercontent.com/71831714/105039918-8bb58e80-5aa4-11eb-975a-a31494eae022.png" width='500'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105041678-9ffa8b00-5aa6-11eb-9bd0-59cef68e42c6.png" width='500'></img>
 
 
 ## Model evaluation 
