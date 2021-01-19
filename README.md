@@ -233,7 +233,7 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 
 ## Model Evaluation 
 ### 모델 성능 평가
-- 재현률(Recall)과 정밀도(Precision)를 기준으로 성능 평가 진행 
+- 재현률(Recall)과 정밀도(Accuracy)를 기준으로 성능 평가 진행 
 
 <img src="https://user-images.githubusercontent.com/71831714/105040231-ed75f880-5aa4-11eb-83f9-d94772f72028.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105040236-ef3fbc00-5aa4-11eb-9c02-7715142bcffb.png" width='400'></img>
@@ -257,7 +257,9 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
  3) accuracy가 낮다는 한계점 존재
 
 ## Conclusion
-- 
+- Random Under Sampling이 다른 샘플링 기법들보다 좋은 성능을 보여준 이유에 대해 추가 학습 예정
+- 차원을 축소함으로서 속도 뿐만 아니라 성능이 크게 향상됨
+- 좀 더 다양한 Hyper Parameter에 대해 학습할 시간에 부족한 점이 아쉬움
 
 ## 함께한 분석가 :thumbsup:
 
