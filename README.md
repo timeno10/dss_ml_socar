@@ -54,23 +54,11 @@ from imblearn.over_sampling import SMOTE, ADASYN, RandomOverSampler
 from imblearn.under_sampling import RandomUnderSampler, CondensedNearestNeighbour, NearMiss
 from imblearn.combine import SMOTETomek, SMOTEENN
 # model selection
-from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_predict, StratifiedKFold, KFold, cross_val_score
+from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
 # scoring
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score, roc_auc_score
 # pca
 from sklearn.decomposition import PCA
-# 한글 설정 (WIN)
-from matplotlib import font_manager
-# from matplotlib import rc
-# plt.rcParams['axes.unicode_minus'] = False
-# f_path= "C:/Windows/Fonts/malgun.ttf"
-# font_name= font_manager.FontProperties(fname=f_path).get_name()
-# rc('font', family =font_name)
-# plt.rc('font', family='Malgun Gothic')
-
-import warnings
-warnings.filterwarnings('ignore')
-pd.options.display.float_format = '{:.5f}'.format
 ```
 
 ### 1.1 데이터 불러오기
