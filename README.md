@@ -201,20 +201,20 @@ make_graph('accident_hour')
 
 ## Preprocessing 
 
-### 원핫인코딩 
-- 적용안함 
-- 모든 카테고리 변수 
-
-### 결측치처리 / 이상치 제거 
+### 결측치처리 & 이상치 제거 
 - 평균값/중앙값/최빈값/KNN imputer 를 활용한 결측치 보간 진행 
 
-### 스케일링 
+### 원핫인코딩(OneHotEncoding)
+- 적용 안 함 
+- 모든 카테고리 변수에 적용
+
+### 스케일링(Scaling)
 - StandardScaler
 - MinMaxScaler 
 - RobustScaler
 - Log Scailing 
 
-### 샘플링
+### 샘플링(Sampling)
 imbalanced data 처리를 위한 다양한 샘플링 기법 시도 
 
 <img src="https://user-images.githubusercontent.com/71831714/105041213-0d59ec00-5aa6-11eb-93e4-5d3eaedb94c2.png" width='500'></img>
@@ -226,31 +226,31 @@ imbalanced data 처리를 위한 다양한 샘플링 기법 시도
 - SMOTETomek
 - SMOTEENN
 
-### PCA
+### 주성분 분석(PCA)
 - 차원 축소 기법을 통한 데이터 노이즈 제거 
 
 ## Modeling  
-### 분류기
+### 분류기(Classifier)
 - LogisticRegression
 - DecisionTree
 - RandomForest
 - LGBM
 - LinearSVC 
 
-### 하이퍼파라미터 튜닝 
- - 최적의 파라미터 값을 찾기 위해 교차 검증 사용 
+### 하이퍼 파라미터 튜닝(Hyper Parameter Tuning)
+ - 최적의 하이퍼 파라미터 값을 찾기 위해 교차 검증 사용 
  
 <img src="https://user-images.githubusercontent.com/71831714/105041678-9ffa8b00-5aa6-11eb-9bd0-59cef68e42c6.png" width='500'></img>
 
 
-## Model evaluation 
-### 모델 성능 평가 (metrics)
-- 정확도와 재현률을 기준으로 성능 평가 진행 
+## Model Evaluation 
+### 모델 성능 평가
+- 정밀도(Precision)와 재현률(Recall)을 기준으로 성능 평가 진행 
 
 <img src="https://user-images.githubusercontent.com/71831714/105040231-ed75f880-5aa4-11eb-83f9-d94772f72028.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105040236-ef3fbc00-5aa4-11eb-9c02-7715142bcffb.png" width='400'></img>
  
-### 최고의 모델
+### 최고의 모델(Best Model)
 
 <img src="https://user-images.githubusercontent.com/71831714/105040398-24e4a500-5aa5-11eb-95a7-9a0a2e107fb4.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105040406-2615d200-5aa5-11eb-9bbd-9c9e80854f8c.png" width='400'></img>
@@ -259,19 +259,19 @@ imbalanced data 처리를 위한 다양한 샘플링 기법 시도
 - 
 
 ## 함께한 분석가 :thumbsup:
-  
-- 김미정 
-  - 
-  - GitHub: 
-  
+
 - 김성준
-  - 
-  - GitHub: 
+  - EDA, Preprocessing, Modulization, Modeling, Readme
+  - GitHub: https://github.com/alltimeno1
+    
+- 김미정 
+  - EDA, Preprocessing,Modeling, ppt
+  - GitHub: https://github.com/LeilaYK
   
 - 이정려
-  - 
-  - GitHub: 
+  - EDA, Preprocessing,Modeling, ppt
+  - GitHub: https://github.com/jungryo
   
 - 전예나
-  - 
-  - GitHub: 
+  - EDA, Preprocessing,Modeling, ppt, presentation
+  - GitHub: https://github.com/Yenabeam
