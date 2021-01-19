@@ -105,7 +105,7 @@ socar_test = socar_df[socar_df["test_set"] == 1]
 socar_report = sv.compare([socar_tr, "Train"], [socar_test, "Test"], "fraud_YN")
 socar_report.show_html('./socar_report.html')
 ```
-<img src="https://user-images.githubusercontent.com/71831714/104716672-97831700-576b-11eb-80e5-867e81d60082.png"></img>
+<img src="https://user-images.githubusercontent.com/71831714/104716672-97831700-576b-11eb-80e5-867e81d60082.png" width='800'></img>
 
 
 ### 2. Seaborn
@@ -116,8 +116,7 @@ sns.countplot('fraud_YN', data=socar_df)
 plt.title("Fraud Distributions \n", fontsize=14)
 plt.show()
 ```
-???????????????????????????????????????????????????????
-<img src="https://user-images.githubusercontent.com/71831714/104717802-3b20f700-576d-11eb-9e68-13a5fbfa24ff.png"></img>
+<img src="https://user-images.githubusercontent.com/71831714/105040354-16968900-5aa5-11eb-90bc-08845657fa94.png" width='400'></img>
 
 #### 2) 컬럼별 분포도 확인
 ```python3
@@ -143,7 +142,7 @@ for i, feature in enumerate(var):
 
 plt.show()
 ```
-<img src="https://user-images.githubusercontent.com/71831714/104717879-5b50b600-576d-11eb-9417-b8a123987454.png"></img>
+<img src="https://user-images.githubusercontent.com/71831714/104717879-5b50b600-576d-11eb-9417-b8a123987454.png" width='600'></img>
 
 #### 3) 상관관계 히트맵
 ```python3
@@ -160,14 +159,14 @@ cmap = sns.diverging_palette(220, 10, as_cmap=True)
 sns.heatmap(socar.corr(), mask=mask, cmap=cmap, vmax=.3, center=0,
             square=True, linewidths=.5, cbar_kws={"shrink": .5});
 ```
-<img src="https://user-images.githubusercontent.com/71831714/104718021-9652e980-576d-11eb-868f-03c3c7843e5e.png"></img>
+<img src="https://user-images.githubusercontent.com/71831714/104718021-9652e980-576d-11eb-868f-03c3c7843e5e.png" width='600'></img>
 
 #### 4) 다중공선성
 ```python3
 pd.DataFrame({"VIF Factor": [variance_inflation_factor(socar.values, idx) 
                              for idx in range(socar.shape[1])], "features": socar.columns})
 ```
-<img src="https://user-images.githubusercontent.com/71831714/104718280-fea1cb00-576d-11eb-9ed3-d63b4d36eec4.png"></img>
+<img src="https://user-images.githubusercontent.com/71831714/104718280-fea1cb00-576d-11eb-9ed3-d63b4d36eec4.png" width='200'></img>
 
 #### 5) 변수 관찰
 ```python3
@@ -209,48 +208,61 @@ def make_graph(column):
 
 make_graph('accident_hour')
 ```
-<img src="https://user-images.githubusercontent.com/71831714/104718424-33158700-576e-11eb-83f4-57562b70928a.png"></img>
+<img src="https://user-images.githubusercontent.com/71831714/104718424-33158700-576e-11eb-83f4-57562b70928a.png" width='600'></img>
 
 ## Preprocessing 
-### 스케일링 
-- standard scailing 
-- log scailing 
-- minmax scailing 
-- robust scailing 
-
-### 샘플링
-imbalanced data 처리를 위한 다양한 샘플링 기법 시도 
-- random under 
-- random over 
-- smote
-- adasyn 
-- smotenn
-
-### PCA
-- 차원 축소 기법을 통한 데이터 노이즈 제거 
 
 ### 원핫인코딩 
 - 적용안함 
-- 일부 카테고리 변수 
 - 모든 카테고리 변수 
 
 ### 결측치처리 / 이상치 제거 
 - 평균값/중앙값/최빈값/KNN imputer 를 활용한 결측치 보간 진행 
 
-## 하이퍼파라미터 튜닝 
-### 모델별 최적성능을 위해 아래와 같이 파라미터 튜닝 작업을 시도 
+### 스케일링 
+- StandardScaler
+- MinMaxScaler 
+- RobustScaler
+- Log Scailing 
+
+### 샘플링
+imbalanced data 처리를 위한 다양한 샘플링 기법 시도 
+
+
+- RandomOverSampler
+- SMOTE 
+- ADASYN
+- RandomUnderSampler
+- SMOTETomek
+- SMOTEENN
+
+### PCA
+- 차원 축소 기법을 통한 데이터 노이즈 제거 
 
 ## Modeling  
-### 모델 학습 
-- logistic regression
-- decision tree
-- random forest 
-- lgbm
-- svm 
+### 분류기
+- LogisticRegression
+- DecisionTree
+- RandomForest
+- LGBM
+- LinearSVC 
+
+### 하이퍼파라미터 튜닝 
+ - 모델별 최적성능을 위해 아래와 같이 파라미터 튜닝 작업을 시도 
+<img src="https://user-images.githubusercontent.com/71831714/105039918-8bb58e80-5aa4-11eb-975a-a31494eae022.png" width='500'></img>
+
 
 ## Model evaluation 
 ### 모델 성능 평가 (metrics)
 - 정확도와 재현률을 기준으로 성능 평가 진행 
+
+<img src="https://user-images.githubusercontent.com/71831714/105040231-ed75f880-5aa4-11eb-83f9-d94772f72028.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105040236-ef3fbc00-5aa4-11eb-9c02-7715142bcffb.png" width='400'></img>
+ 
+### 최고의 모델
+
+<img src="https://user-images.githubusercontent.com/71831714/105040398-24e4a500-5aa5-11eb-95a7-9a0a2e107fb4.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105040406-2615d200-5aa5-11eb-9bbd-9c9e80854f8c.png" width='400'></img>
 
 ## Conclusion
 - 
