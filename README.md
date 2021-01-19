@@ -215,7 +215,7 @@ make_graph('accident_hour')
 - Log Scailing 
 
 ### 샘플링(Sampling)
-imbalanced data 처리를 위한 다양한 샘플링 기법 시도 
+Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도 
 
 <img src="https://user-images.githubusercontent.com/71831714/105041213-0d59ec00-5aa6-11eb-93e4-5d3eaedb94c2.png" width='500'></img>
 
@@ -245,15 +245,28 @@ imbalanced data 처리를 위한 다양한 샘플링 기법 시도
 
 ## Model Evaluation 
 ### 모델 성능 평가
-- 정밀도(Precision)와 재현률(Recall)을 기준으로 성능 평가 진행 
+- 재현률(Recall)과 정밀도(Precision)를 기준으로 성능 평가 진행 
 
 <img src="https://user-images.githubusercontent.com/71831714/105040231-ed75f880-5aa4-11eb-83f9-d94772f72028.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105040236-ef3fbc00-5aa4-11eb-9c02-7715142bcffb.png" width='400'></img>
  
 ### 최고의 모델(Best Model)
 
+- 모델 1
+
 <img src="https://user-images.githubusercontent.com/71831714/105040398-24e4a500-5aa5-11eb-95a7-9a0a2e107fb4.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105040406-2615d200-5aa5-11eb-9bbd-9c9e80854f8c.png" width='400'></img>
+
+    acc_type1, b2b, repair_cost, car_part1, car_part2, repair_cnt, insurance_site_aid_YN, police_site_aid_YN 컬럼 제거
+    원핫인코딩
+    StandardScaler
+    RandomUnderSampler
+    데이터를 4차원으로 축소
+    max_depth를 4로 지정
+    
+ 1) validation set과 test set 모두에서 비슷한 성적을 보여줌
+ 2) Fraud 데이터 7건 중 5건을 잡아내 높은 recall 기록
+ 3) accuracy가 다소 낮은 아쉬움
 
 ## Conclusion
 - 
