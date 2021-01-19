@@ -3,18 +3,19 @@
 
 ## 개요 
 
-### 1.1  프로젝트 주제
+### 프로젝트 주제
 - 보험금을 목적으로 한 렌터카 사고 사기 건수가 증가
 - 쏘카의 사고 데이터를 통해 Fraud 유저를 사전에 예측 및 예방 
 
-### 1.2 프로젝트 진행순서
-1. EDA 
-2. 데이터 전처리 및 가공 
-3. 모듈화 
-4. 모델 학습 & 성능 평가 
-5. 결론 
+### 프로젝트 진행순서
+1. Settings
+2. EDA 
+3. Preprocessing 
+4. Modulization 
+5. Modeling 
+6. Model Evaluation
  
-### 1.3 시작에 앞서
+### 시작에 앞서
 - 본 프로젝트를 진행하기 위해서는 __Python 3__ 이상의 버젼과 다음의 설치가 필요합니다.
 ```
 pip install numpy
@@ -29,9 +30,9 @@ pip install sweetviz
 pip install statsmodels
 ```
 
-## Setting 
+## 1. Settings
 
-### 1.1 환경설정
+### 1-1. 환경설정
 ```python3
 import pandas as pd
 import numpy as np
@@ -61,7 +62,7 @@ from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_sc
 from sklearn.decomposition import PCA
 ```
 
-### 1.1 데이터 불러오기
+### 1-2. 데이터 불러오기
 - 본 프로젝트는 쏘카로부터 데이터를 제공받아 진행된 프로젝트입니다. 
 ```python
 # 1. 데이터 불러오기 
@@ -69,9 +70,9 @@ socar_df = pd.read_csv("insurance_fraud_detect_data.csv")
 pd.set_option('display.max_columns', len(socar_df.columns))
 socar = socar_df.copy()
 ```
-## EDA
+## 2.EDA
 
-### 1. SweetViz
+### 2-1. SweetViz
 ```python
 socar_tr = socar_df[socar_df["test_set"] == 0]
 socar_test = socar_df[socar_df["test_set"] == 1]
@@ -81,7 +82,7 @@ socar_report.show_html('./socar_report.html')
 <img src="https://user-images.githubusercontent.com/71831714/104716672-97831700-576b-11eb-80e5-867e81d60082.png" width='800'></img>
 
 
-### 2. Seaborn
+### 2-2. Seaborn
 
 #### 1) 불균형한 데이터 분포
 ```python3
@@ -181,28 +182,28 @@ make_graph('accident_hour')
 ```
 <img src="https://user-images.githubusercontent.com/71831714/105041042-dedc1100-5aa5-11eb-98f2-f05fed413e7a.png" width='600'></img>
 
-## Modulization
+## 3. Modulization
  - 코드의 간결화를 위해 모듈화 진행
  
 <img src="https://user-images.githubusercontent.com/71831714/105041949-01baf500-5aa7-11eb-98de-67aeb1a13db2.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105041951-02ec2200-5aa7-11eb-9732-d91191eb0f26.png" width='400'></img>
 
-## Preprocessing 
+## 4. Preprocessing 
 
-### 결측치처리 & 이상치 제거 
+### 4-1. 결측치처리 & 이상치 제거 
 - 평균값/중앙값/최빈값/KNN imputer 를 활용한 결측치 보간 진행 
 
-### 원핫인코딩(OneHotEncoding)
+### 4-2. 원핫인코딩(OneHotEncoding)
 - 적용 안 함 
 - 모든 카테고리 변수에 적용
 
-### 스케일링(Scaling)
+### 4-3. 스케일링(Scaling)
 - StandardScaler
 - MinMaxScaler 
 - RobustScaler
 - Log Scailing 
 
-### 샘플링(Sampling)
+### 4-4. 샘플링(Sampling)
 Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도 
 
 <img src="https://user-images.githubusercontent.com/71831714/105041213-0d59ec00-5aa6-11eb-93e4-5d3eaedb94c2.png" width='500'></img>
@@ -214,10 +215,10 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 - SMOTETomek
 - SMOTEENN
 
-### 주성분 분석(PCA)
+### 4-5. 주성분 분석(PCA)
 - 차원 축소 기법을 통한 데이터 노이즈 제거 
 
-## Modeling  
+## 5. Modeling  
 ### 분류기(Classifier)
 - LogisticRegression
 - DecisionTree
@@ -231,7 +232,7 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 <img src="https://user-images.githubusercontent.com/71831714/105041678-9ffa8b00-5aa6-11eb-9bd0-59cef68e42c6.png" width='500'></img>
 
 
-## Model Evaluation 
+## 6. Model Evaluation 
 ### 모델 성능 평가
 - 재현률(Recall)과 정밀도(Accuracy)를 기준으로 성능 평가 진행 
 
