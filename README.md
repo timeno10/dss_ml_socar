@@ -266,7 +266,7 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
     
  1) validation set과 test set 모두에서 비슷한 성적을 보여줌
  2) Fraud 데이터 7건 중 5건을 잡아내 높은 recall 기록
- 3) accuracy가 다소 낮은 아쉬움
+ 3) accuracy가 낮다는 한계점 존재
 
 ## Conclusion
 - 
