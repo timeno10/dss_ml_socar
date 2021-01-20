@@ -9,14 +9,23 @@
 - 보험금을 목적으로 한 렌터카 사고 사기 건수가 증가
 - 쏘카의 사고 데이터를 통해 Fraud 유저를 사전에 예측 및 예방 
 
-### 프로젝트 진행순서
+### 프로젝트 진행 순서
 1. EDA 
 2. Preprocessing 
 3. Modulization 
 4. Modeling 
 5. Model Evaluation
 
-### 프로젝트 목표
+### 프로젝트 진행 과정
+1주차 - 렌터카 보험 사기 관련 정보 검색, EDA 및 Preprocessing, 간단한 모델링 진행
+
+2주차 - 다양한 Preprocessing 기법들 활용, Hyper Parameter Tuning
+
+3주차 - 모델 평가 성능 정리, 모델링 과정 모듈화 진행
+
+4주차 - 최종 발표 및 PPT 작성, Github 정리
+
+### 프로젝트 목표 설정
 - 사전에 전달받은 모델 평가 점수표보다 높은 성적 달성
 
 <img src="https://user-images.githubusercontent.com/71831714/105158927-de00b900-5b51-11eb-89cd-5992f90909cb.jpg" width='800'></img>
@@ -166,12 +175,9 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 
 <img src="https://user-images.githubusercontent.com/71831714/105041213-0d59ec00-5aa6-11eb-93e4-5d3eaedb94c2.png" width='500'></img>
 
-- RandomOverSampler
-- SMOTE 
-- ADASYN
-- RandomUnderSampler
-- SMOTETomek
-- SMOTEENN
+- OverSampling(RandomOverSampler, SMOTE, ADASYN)
+- UnderSampling(RandomUnderSampler, TomekLinks)
+- CombinedSampling(SMOTETomek, SMOTEENN)
 
 #### 5) 주성분 분석(PCA)
 - 차원 축소 기법을 통한 데이터 노이즈 제거 
