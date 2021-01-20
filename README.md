@@ -17,9 +17,9 @@
 5. Model Evaluation
 
 ### 프로젝트 진행 과정
-1주차 - 렌터카 보험 사기 관련 정보 검색, EDA 및 Preprocessing, 간단한 모델링 진행
+1주차 - 렌터카 보험 사기 관련 정보 검색, EDA 및 전처리, 간단한 모델링
 
-2주차 - 다양한 Preprocessing 기법들 활용, Hyper Parameter Tuning
+2주차 - 다양한 전처리 기법들 활용, Hyper Parameter 튜닝을 통한 모델링
 
 3주차 - 모델 평가 성능 정리, 모델링 과정 모듈화 진행
 
