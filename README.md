@@ -1,6 +1,8 @@
 # 쏘카 보험 사기 탐지 머신러닝 프로젝트
 ![image](https://user-images.githubusercontent.com/72847093/104838734-3476b900-5900-11eb-9428-96d19d7840d8.png)
 
+###### 출처 : 유튜브, ㄷㅋ(뒷쿵) 당했습니다... 먹고살기 팍팍해서? 보험사기 역대 최고를 기록 [온마이크] (https://www.youtube.com/watch?v=hC1V-9eRTVc)
+
 ## 개요 
 
 ### 프로젝트 주제
@@ -8,71 +10,24 @@
 - 쏘카의 사고 데이터를 통해 Fraud 유저를 사전에 예측 및 예방 
 
 ### 프로젝트 진행순서
-1. Settings
-2. EDA 
-3. Preprocessing 
-4. Modulization 
-5. Modeling 
-6. Model Evaluation
+1. EDA 
+2. Preprocessing 
+3. Modulization 
+4. Modeling 
+5. Model Evaluation
  
-### 시작에 앞서
-- 본 프로젝트를 진행하기 위해서는 __Python 3__ 이상의 버젼과 다음의 설치가 필요합니다.
-```
-pip install numpy
-pip install pandas
-pip install seaborn
-pip install matplotlib
-pip install sklearn
-pip install lightgbm 
-pip install imblearn
-pip install warnings
-pip install sweetviz
-pip install statsmodels
-```
-
-## 1. Settings
-
-### 1-1. 환경설정
-```python3
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import sweetviz as sv
-from statsmodels.stats.outliers_influence import variance_inflation_factor
-# scaler 
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
-# models
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
-from lightgbm import LGBMClassifier
-from sklearn.svm import LinearSVC
-# pipeline
-from sklearn.pipeline import Pipeline 
-# resampling
-from imblearn.over_sampling import SMOTE, ADASYN, RandomOverSampler
-from imblearn.under_sampling import RandomUnderSampler, CondensedNearestNeighbour, NearMiss
-from imblearn.combine import SMOTETomek, SMOTEENN
-# model selection
-from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
-# scoring
-from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score, roc_auc_score
-# pca
-from sklearn.decomposition import PCA
-```
-
-### 1-2. 데이터 불러오기
+### 데이터
 - 본 프로젝트는 쏘카로부터 데이터를 제공받아 진행된 프로젝트입니다. 
 ```python
-# 1. 데이터 불러오기 
+# 데이터 불러오기 
 socar_df = pd.read_csv("insurance_fraud_detect_data.csv")
 pd.set_option('display.max_columns', len(socar_df.columns))
 socar = socar_df.copy()
 ```
-## 2. EDA
 
-### 2-1. SweetViz
+## 1. EDA
+
+### 1-1. SweetViz
 ```python
 socar_tr = socar_df[socar_df["test_set"] == 0]
 socar_test = socar_df[socar_df["test_set"] == 1]
@@ -82,7 +37,7 @@ socar_report.show_html('./socar_report.html')
 <img src="https://user-images.githubusercontent.com/71831714/104716672-97831700-576b-11eb-80e5-867e81d60082.png" width='800'></img>
 
 
-### 2-2. Seaborn
+### 1-2. Seaborn
 
 #### 1) 불균형한 데이터 분포
 ```python3
@@ -182,13 +137,7 @@ make_graph('accident_hour')
 ```
 <img src="https://user-images.githubusercontent.com/71831714/105041042-dedc1100-5aa5-11eb-98f2-f05fed413e7a.png" width='600'></img>
 
-## 3. Modulization
- - 코드의 간결성을 위해 모듈화 진행
- 
-<img src="https://user-images.githubusercontent.com/71831714/105041949-01baf500-5aa7-11eb-98de-67aeb1a13db2.png" width='400'></img>
-<img src="https://user-images.githubusercontent.com/71831714/105041951-02ec2200-5aa7-11eb-9732-d91191eb0f26.png" width='400'></img>
-
-## 4. Preprocessing 
+## 2. Preprocessing 
 
 #### 1) 특징 선택(Feature Selection)
 - 불필요한 특징 
@@ -221,7 +170,13 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 #### 5) 주성분 분석(PCA)
 - 차원 축소 기법을 통한 데이터 노이즈 제거 
 
-## 5. Modeling  
+## 3. Modulization
+ - 코드의 간결성을 위해 모듈화 진행
+ 
+<img src="https://user-images.githubusercontent.com/71831714/105041949-01baf500-5aa7-11eb-98de-67aeb1a13db2.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105041951-02ec2200-5aa7-11eb-9732-d91191eb0f26.png" width='400'></img>
+
+## 4. Modeling  
 #### 분류기(Classifier)
 - LogisticRegression
 - DecisionTree
@@ -234,13 +189,15 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
  
 <img src="https://user-images.githubusercontent.com/71831714/105041678-9ffa8b00-5aa6-11eb-9bd0-59cef68e42c6.png" width='500'></img>
 
-## 6. Model Evaluation 
+## 5. Model Evaluation 
 ### 모델 성능 평가
 - 재현률(Recall)과 정밀도(Accuracy)를 기준으로 성능 평가 진행 
 
 <img src="https://user-images.githubusercontent.com/71831714/105040231-ed75f880-5aa4-11eb-83f9-d94772f72028.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105040236-ef3fbc00-5aa4-11eb-9c02-7715142bcffb.png" width='400'></img>
- 
+
+###### 출처 : 패스트 캠퍼스 민형기 강사님 학습자료 020. 모델평가.pdf
+
 ### 최고의 모델(Best Model)
 
 - 모델 1
@@ -254,7 +211,8 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
     RandomUnderSampling
     주성분 분석으로 데이터를 4차원으로 축소
     DecisionTree max_depth를 4로 지정
-    
+ 
+ 
  1) validation set과 test set 모두에서 비슷한 성적을 보여줌
  2) Fraud 데이터 7건 중 5건을 잡아내 높은 recall 기록
  3) accuracy가 낮다는 한계점 존재
@@ -274,6 +232,21 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
  1) validation set과 test set에서의 성능이 크게 차이남
  2) Fraud 데이터 7건 중 7건을 잡아내 높은 recall 기록
  3) accuracy가 0.32로 실전에서 활용하기 힘든 모델
+ 
+ #### Why?
+ 
+ 1. 컬럼 제거
+ - police_site_aid_YN는 다중 공선성(Multicollinearity)이 26으로 나타나 제거
+ - repair_cost, insurance_site_aid_YN는 결측치가 과반수 이상을 차지하여 제거
+ - DecisionTree의 Feature importance가 0인 컬럼들을 랜덤하게 제거
+ 
+ 2. 표준화(Standardization)는 정규 분포를 따르지 않는 데이터에 효과적이고 이상치(Outlier)의 영향을 적게 받음
+ 
+ <img src="https://user-images.githubusercontent.com/71831714/105138963-f912ff00-5b38-11eb-9935-0e1bdaf1f2f8.png" width='400'></img>
+ 
+ ###### 출처 : ANIRUDDHA BHANDARI, https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
+ 
+ 3. 
  
 ## Conclusion
 - Random Under Sampling이 다른 샘플링 기법들보다 좋은 성능을 보여준 이유에 대해 추가 학습 예정
