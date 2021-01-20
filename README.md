@@ -173,7 +173,7 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 ## 3. Modulization
  - 코드의 간결성을 위해 모듈화 진행
  
-<img src="https://user-images.githubusercontent.com/71831714/105041949-01baf500-5aa7-11eb-98de-67aeb1a13db2.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105041949-01baf500-5aa7-11eb-98de-67aeb1a13db2.png" width='370'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105041951-02ec2200-5aa7-11eb-9732-d91191eb0f26.png" width='400'></img>
 
 ## 4. Modeling  
