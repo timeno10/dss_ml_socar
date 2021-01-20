@@ -242,13 +242,13 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
     주성분 분석으로 데이터를 2차원으로 축소
     DecisionTree max_depth를 6으로 지정
     
- 1) validation set과 test set에서의 성능이 크게 차이나 안정성이 떨어짐
+ 1) validation set과 test set에서의 성능이 다소 차이가 생겨 안정성이 떨어짐
  2) Fraud 데이터 7건 중 7건을 잡아내  recall 기록
  3) accuracy가 0.32로 실전에서 활용하기 힘든 모델
  
  #### Why?
  
-  1. 컬럼 제거
+  1. 변수 선택(Feature Selection)
  - police_site_aid_YN는 다중 공선성(Multicollinearity)이 26으로 나타나 제거
  - repair_cost, insurance_site_aid_YN는 결측치가 과반수 이상을 차지하여 제거
  - DecisionTree의 Feature importance가 0인 컬럼들을 랜덤하게 제거
