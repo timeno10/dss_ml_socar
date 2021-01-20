@@ -190,6 +190,9 @@ make_graph('accident_hour')
 
 ## 4. Preprocessing 
 
+#### 1) 특징 선택(Feature Selection)
+- 불필요한 특징 
+
 #### 1) 결측치처리 & 이상치 제거 
 - 평균값/중앙값/최빈값/KNN imputer 를 활용한 결측치 보간 진행 
 
