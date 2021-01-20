@@ -190,20 +190,20 @@ make_graph('accident_hour')
 
 ## 4. Preprocessing 
 
-### 4-1. 결측치처리 & 이상치 제거 
+### 1) 결측치처리 & 이상치 제거 
 - 평균값/중앙값/최빈값/KNN imputer 를 활용한 결측치 보간 진행 
 
-### 4-2. 원핫인코딩(OneHotEncoding)
+### 2) 원핫인코딩(OneHotEncoding)
 - 적용 안 함 
 - 모든 카테고리 변수에 적용
 
-### 4-3. 스케일링(Scaling)
+### 3) 스케일링(Scaling)
 - StandardScaler
 - MinMaxScaler 
 - RobustScaler
 - Log Scailing 
 
-### 4-4. 샘플링(Sampling)
+### 4) 샘플링(Sampling)
 Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도 
 
 <img src="https://user-images.githubusercontent.com/71831714/105041213-0d59ec00-5aa6-11eb-93e4-5d3eaedb94c2.png" width='500'></img>
@@ -215,7 +215,7 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 - SMOTETomek
 - SMOTEENN
 
-### 4-5. 주성분 분석(PCA)
+### 5) 주성분 분석(PCA)
 - 차원 축소 기법을 통한 데이터 노이즈 제거 
 
 ## 5. Modeling  
