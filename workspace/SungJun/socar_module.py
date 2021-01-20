@@ -11,8 +11,6 @@ from sklearn.ensemble import RandomForestClassifier
 from lightgbm import LGBMClassifier
 from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score, roc_auc_score
-import pickle
-from sklearn.externals import joblib
 
 
 class SocarML:
@@ -30,7 +28,7 @@ class SocarML:
         self.svm_clf = LinearSVC(random_state=self.random_state)
         # hyper-parameters
         self.lg_params=[{'C':[0.1, 0.5, 1]}]
-        self.dt_params= [{'max_depth': [2, 4, 8, 16]}]
+        self.dt_params= [{'max_depth': [2, 4, 6, 8]}]
         self.rf_params = [{'n_estimators': [50, 100, 200, 400]}]
         self.lgbm_params = [{'n_estimators': [50, 100, 200, 400], 'num_leaves': [4, 8, 16, 32]}]
         self.svm_params = [{'C':[0.1, 0.5, 1]}]
