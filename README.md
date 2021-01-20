@@ -235,23 +235,25 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
  
  #### Why?
  
- 1. 컬럼 제거
+  1. 컬럼 제거
  - police_site_aid_YN는 다중 공선성(Multicollinearity)이 26으로 나타나 제거
  - repair_cost, insurance_site_aid_YN는 결측치가 과반수 이상을 차지하여 제거
  - DecisionTree의 Feature importance가 0인 컬럼들을 랜덤하게 제거
  
- 2. 표준화(Standardization)는 정규 분포를 따르지 않는 데이터에 효과적이고 이상치(Outlier)의 영향을 적게 받음
+  2. 표준화(Standardization)는 정규 분포를 따르지 않는 데이터에 효과적이고 이상치(Outlier)의 영향을 적게 받음
  
  <img src="https://user-images.githubusercontent.com/71831714/105138963-f912ff00-5b38-11eb-9935-0e1bdaf1f2f8.png" width='400'></img>
  
  ###### 출처 : ANIRUDDHA BHANDARI, https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
  
- 3. 
+  3. 높은 비중의 클래스 데이터를 랜덤하게 제거하는 Random UnderSampling 기법이 전반적으로 높은 성능을 보임
+ 
+  4. 차원 축소와 하이퍼 파라미터의 값은 반복문과 GridSearchCV를 통해 최적의 수치로 설정
  
 ## Conclusion
 - Random Under Sampling이 다른 샘플링 기법들보다 좋은 성능을 보여준 이유에 대해 추가 학습 예정
 - 차원을 축소함으로서 속도 뿐만 아니라 성능이 크게 향상됨
-- 좀 더 다양한 Hyper Parameter에 대해 학습할 시간에 부족한 점이 아쉬움
+- 좀 더 다양한 Hyper Parameter에 대해 학습할 시간이 부족해서 아쉬움
 
 ## 함께한 분석가 :thumbsup:
 
