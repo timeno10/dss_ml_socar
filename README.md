@@ -183,7 +183,7 @@ make_graph('accident_hour')
 <img src="https://user-images.githubusercontent.com/71831714/105041042-dedc1100-5aa5-11eb-98f2-f05fed413e7a.png" width='600'></img>
 
 ## 3. Modulization
- - 코드의 간결화를 위해 모듈화 진행
+ - 코드의 간결성을 위해 모듈화 진행
  
 <img src="https://user-images.githubusercontent.com/71831714/105041949-01baf500-5aa7-11eb-98de-67aeb1a13db2.png" width='400'></img>
 <img src="https://user-images.githubusercontent.com/71831714/105041951-02ec2200-5aa7-11eb-9732-d91191eb0f26.png" width='400'></img>
@@ -248,10 +248,10 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 
     acc_type1, b2b, repair_cost, car_part1, car_part2, repair_cnt, insurance_site_aid_YN, police_site_aid_YN 컬럼 제거
     원핫인코딩
-    StandardScaler
-    RandomUnderSampler
-    데이터를 4차원으로 축소
-    max_depth를 4로 지정
+    StandardScaling
+    RandomUnderSampling
+    주성분 분석으로 데이터를 4차원으로 축소
+    DecisionTree max_depth를 4로 지정
     
  1) validation set과 test set 모두에서 비슷한 성적을 보여줌
  2) Fraud 데이터 7건 중 5건을 잡아내 높은 recall 기록
