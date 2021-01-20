@@ -219,18 +219,17 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 - 차원 축소 기법을 통한 데이터 노이즈 제거 
 
 ## 5. Modeling  
-### 분류기(Classifier)
+#### 분류기(Classifier)
 - LogisticRegression
 - DecisionTree
 - RandomForest
 - LGBM
 - LinearSVC 
 
-### 하이퍼 파라미터 튜닝(Hyper Parameter Tuning)
+#### 하이퍼 파라미터 튜닝(Hyper Parameter Tuning)
  - 최적의 하이퍼 파라미터 값을 찾기 위해 교차 검증 사용 
  
 <img src="https://user-images.githubusercontent.com/71831714/105041678-9ffa8b00-5aa6-11eb-9bd0-59cef68e42c6.png" width='500'></img>
-
 
 ## 6. Model Evaluation 
 ### 모델 성능 평가
