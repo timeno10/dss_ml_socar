@@ -257,6 +257,22 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
  2) Fraud 데이터 7건 중 5건을 잡아내 높은 recall 기록
  3) accuracy가 낮다는 한계점 존재
 
+- 모델 2
+
+<img src="https://user-images.githubusercontent.com/71831714/105114935-41b3c380-5b0b-11eb-97b0-c456e065476a.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105116618-6eb5a580-5b0e-11eb-9633-2ed7bfeece37.png" width='400'></img>
+
+    b2b, repair_cost, car_part1, car_part2, repair_cnt, insurance_site_aid_YN, police_site_aid_YN 컬럼 제거
+    원핫인코딩
+    StandardScaling
+    RandomUnderSampling
+    주성분 분석으로 데이터를 2차원으로 축소
+    DecisionTree max_depth를 6으로 지정
+    
+ 1) validation set과 test set에서의 성능이 크게 차이남
+ 2) Fraud 데이터 7건 중 7건을 잡아내 높은 recall 기록
+ 3) accuracy가 0.32로 실전에서 활용하기 힘든 모델
+ 
 ## Conclusion
 - Random Under Sampling이 다른 샘플링 기법들보다 좋은 성능을 보여준 이유에 대해 추가 학습 예정
 - 차원을 축소함으로서 속도 뿐만 아니라 성능이 크게 향상됨
