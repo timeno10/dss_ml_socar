@@ -258,8 +258,8 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 
 - 모델 2
 
-<img src="https://user-images.githubusercontent.com/71831714/105126621-83039d80-5b22-11eb-8258-77e7bf17c8fc.png" width='400'></img>
-<img src="https://user-images.githubusercontent.com/71831714/105126622-8434ca80-5b22-11eb-8839-d269a4650794.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105126964-2e145700-5b23-11eb-9f6a-1958c4c2d7a1.png" width='400'></img>
+<img src="https://user-images.githubusercontent.com/71831714/105126966-2f458400-5b23-11eb-8fab-e007a6317366.png" width='400'></img>
 
     b2b, repair_cost, car_part1, car_part2, repair_cnt, insurance_site_aid_YN, police_site_aid_YN 컬럼 제거
     원핫인코딩
