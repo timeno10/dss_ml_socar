@@ -198,7 +198,8 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 
 #### 하이퍼 파라미터 튜닝(Hyper Parameter Tuning)
  - 최적의 하이퍼 파라미터 값을 찾기 위해 교차 검증 사용 
- 
+ - 데이터 불균형으로 인해 모델 성능이 불안정하여 2차례 검증 후 성능이 가장 안정적인 모델을 선정
+
 <img src="https://user-images.githubusercontent.com/71831714/105041678-9ffa8b00-5aa6-11eb-9bd0-59cef68e42c6.png" width='500'></img>
 
 ## 5. Model Evaluation 
@@ -225,7 +226,7 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
     DecisionTree max_depth를 4로 지정
  
  
- 1) validation set과 test set 모두에서 비슷한 성적을 보여줌
+ 1) validation set과 test set 모두에서 비슷한 성적을 보여줘 안정성이 높음
  2) Fraud 데이터 7건 중 5건을 잡아내 높은 recall 기록
  3) accuracy가 낮다는 한계점 존재
 
@@ -241,8 +242,8 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
     주성분 분석으로 데이터를 2차원으로 축소
     DecisionTree max_depth를 6으로 지정
     
- 1) validation set과 test set에서의 성능이 크게 차이남
- 2) Fraud 데이터 7건 중 7건을 잡아내 높은 recall 기록
+ 1) validation set과 test set에서의 성능이 크게 차이나 안정성이 떨어짐
+ 2) Fraud 데이터 7건 중 7건을 잡아내  recall 기록
  3) accuracy가 0.32로 실전에서 활용하기 힘든 모델
  
  #### Why?
@@ -252,15 +253,19 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
  - repair_cost, insurance_site_aid_YN는 결측치가 과반수 이상을 차지하여 제거
  - DecisionTree의 Feature importance가 0인 컬럼들을 랜덤하게 제거
  
-  2. 표준화(Standardization)는 정규 분포를 따르지 않는 데이터에 효과적이고 이상치(Outlier)의 영향을 적게 받음
+  2. 표준화(Standardization)
+ - 정규 분포를 따르지 않는 데이터에 효과적
+ - 이상치(Outlier)의 영향을 적게 받음
  
  <img src="https://user-images.githubusercontent.com/71831714/105138963-f912ff00-5b38-11eb-9935-0e1bdaf1f2f8.png" width='400'></img>
  
  ###### 출처 : ANIRUDDHA BHANDARI, https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/
  
-  3. 높은 비중의 클래스 데이터를 랜덤하게 제거하는 Random UnderSampling 기법이 전반적으로 높은 성능을 보임
+  3. Random UnderSampling 
+ - 높은 비중의 클래스 데이터를 랜덤하게 제거하는 방식으로 다른 방식들보다 안정적으로 높은 성능을 보임
  
-  4. 차원 축소와 하이퍼 파라미터의 값은 반복문과 GridSearchCV를 통해 최적의 수치로 설정
+  4. 차원 축소와 하이퍼 파라미터의 값
+ - 반복문과 GridSearchCV를 통해 최적의 값 찾기
  
 ## Conclusion
 - Random Under Sampling이 다른 샘플링 기법들보다 좋은 성능을 보여준 이유에 대해 추가 학습 예정
