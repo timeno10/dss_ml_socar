@@ -15,7 +15,12 @@
 3. Modulization 
 4. Modeling 
 5. Model Evaluation
- 
+
+### 프로젝트 목표
+- 사전에 전달받은 모델 평가 점수표보다 높은 성적 달성
+
+<img src="https://user-images.githubusercontent.com/71831714/105158927-de00b900-5b51-11eb-89cd-5992f90909cb.jpg" width='800'></img>
+
 ### 데이터
 - 본 프로젝트는 쏘카로부터 데이터를 제공받아 진행된 프로젝트입니다. 
 ```python
@@ -40,6 +45,7 @@ socar_report.show_html('./socar_report.html')
 ### 1-2. Seaborn
 
 #### 1) 불균형한 데이터 분포
+- 16,000건의 사고 데이터 중 사기건는 단 41건으로 극심한 데이터 불균형 문제
 ```python3
 sns.countplot('fraud_YN', data=socar_df)
 plt.title("Fraud Distributions \n", fontsize=14)
@@ -272,3 +278,6 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 - 전예나
   - EDA, Preprocessing,Modeling, ppt, presentation
   - GitHub: https://github.com/Yenabeam
+
+## 참고 자료
+1) 
