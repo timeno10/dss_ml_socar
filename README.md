@@ -164,7 +164,7 @@ make_graph('accident_hour')
 ## 2. Preprocessing 
 
 #### 1) 특징 선택(Feature Selection)
-- 불필요한 특징 
+- 불필요한 변수 제거
 
 #### 1) 결측치처리 & 이상치 제거 
 - 평균값/중앙값/최빈값/KNN imputer 를 활용한 결측치 보간 진행 
@@ -184,9 +184,9 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 
 <img src="https://user-images.githubusercontent.com/71831714/105041213-0d59ec00-5aa6-11eb-93e4-5d3eaedb94c2.png" width='500'></img>
 
-- OverSampling(RandomOverSampler, SMOTE, ADASYN)
-- UnderSampling(RandomUnderSampler, TomekLinks)
-- CombinedSampling(SMOTETomek, SMOTEENN)
+- OverSampling (RandomOverSampler, SMOTE, ADASYN)
+- UnderSampling (RandomUnderSampler, TomekLinks)
+- CombinedSampling (SMOTETomek, SMOTEENN)
 
 #### 5) 주성분 분석(PCA)
 - 차원 축소 기법을 통한 데이터 노이즈 제거 
