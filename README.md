@@ -5,30 +5,39 @@
 
 ## 개요 
 
-### 프로젝트 주제
+### 주제
 - 보험금을 목적으로 한 렌터카 사고 사기 건수가 증가
 - 쏘카의 사고 데이터를 통해 Fraud 유저를 사전에 예측 및 예방 
 
-### 프로젝트 진행 순서
+### 진행 순서
 1. EDA 
 2. Preprocessing 
 3. Modulization 
 4. Modeling 
 5. Model Evaluation
 
-### 프로젝트 진행 과정
-1주차 - 렌터카 보험 사기 관련 정보 검색, EDA 및 전처리, 간단한 모델링
+### 일정
+기간 : 20/12/28~21/1/18
 
-2주차 - 다양한 전처리 기법들 활용, Hyper Parameter 튜닝을 통한 모델링
+1주차(12/28 ~ 1/4) - 렌터카 보험 사기 관련 정보 검색, EDA 및 전처리, 간단한 모델링
 
-3주차 - 모델 평가 성능 정리, 모델링 과정 모듈화 진행
+2주차(1/5 ~ 1/11) - 다양한 전처리 기법들 활용, Hyper Parameter 튜닝을 통한 모델링
 
-4주차 - 최종 발표 및 PPT 작성, Github 정리
+3주차(1/12 ~ 1/18) - 모델 평가 성능 정리, 모델링 과정 모듈화 진행, 최종 발표 및 PPT 작성, Github 정리
 
-### 프로젝트 목표 설정
+### 목표 설정
 - 사전에 전달받은 모델 평가 점수표보다 높은 성적 달성
 
 <img src="https://user-images.githubusercontent.com/71831714/105158927-de00b900-5b51-11eb-89cd-5992f90909cb.jpg" width='800'></img>
+
+### 역할 배분
+공통 : 데이터 관찰, 다양한 전처리 및 모델링 시도 후 의견 공유
+
+성준 : 분석 과정 모듈화, 작업물 취합 후 최종 노트북 파일 작성
+
+미정, 정려 : 발표 자료 제작
+
+예나 : 발표, 일정 조율 및 회의 내용 정리
 
 ### 데이터
 - 본 프로젝트는 쏘카로부터 데이터를 제공받아 진행된 프로젝트입니다. 
@@ -268,9 +277,9 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
  - 반복문과 GridSearchCV를 통해 최적의 값 찾기
  
 ## Conclusion
-- Random Under Sampling이 다른 샘플링 기법들보다 좋은 성능을 보여준 이유에 대해 추가 학습 예정
-- 차원을 축소함으로서 속도 뿐만 아니라 성능이 크게 향상됨
-- 좀 더 다양한 Hyper Parameter에 대해 학습할 시간이 부족해서 아쉬움
+- Random Under Sampling이 다른 샘플링 기법들보다 좋은 Recall 성능을 보여준 이유에 대해 추가 학습 예정
+- 차원을 축소함으로서 속도(약 10% 차이) 뿐만 아니라 성능이 다소 향상됨(약 5% 차이)
+- 사용해보지 못 한 다양한 Hyper Parameters(class_weight, max_features, etc...)에 대해 추가 학습 후 적용해보려고 함
 
 ## 함께한 분석가 :thumbsup:
 
@@ -291,4 +300,5 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
   - GitHub: https://github.com/Yenabeam
 
 ## 참고 자료
-1) 
+1) https://scikit-learn.org/stable/supervised_learning.html#supervised-learning
+2)
