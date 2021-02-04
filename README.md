@@ -31,7 +31,7 @@
 <img src="https://user-images.githubusercontent.com/71831714/105158927-de00b900-5b51-11eb-89cd-5992f90909cb.jpg" width='800'></img>
 
 ### 역할
-공통 : 데이터 관찰, 다양한 전처리 및 모델링 시도 후 의견 공유
+공통 : 데이터 관찰, 다양한 전처리 및 모델링 조사 및 시도 후 의견 공유
 
 성준 : 분석 과정 모듈화, 작업물 취합 후 최종 노트북 파일 작성
 
@@ -51,12 +51,7 @@ socar = socar_df.copy()
 ## 1. EDA
 
 ### 1-1. SweetViz
-```python
-socar_tr = socar_df[socar_df["test_set"] == 0]
-socar_test = socar_df[socar_df["test_set"] == 1]
-socar_report = sv.compare([socar_tr, "Train"], [socar_test, "Test"], "fraud_YN")
-socar_report.show_html('./socar_report.html')
-```
+
 <img src="https://user-images.githubusercontent.com/71831714/104716672-97831700-576b-11eb-80e5-867e81d60082.png" width='800'></img>
 
 
@@ -64,101 +59,23 @@ socar_report.show_html('./socar_report.html')
 
 #### 1) 불균형한 데이터 분포
 - 16,000건의 사고 데이터 중 사기건는 단 41건으로 극심한 데이터 불균형 문제
-```python3
-sns.countplot('fraud_YN', data=socar_df)
-plt.title("Fraud Distributions \n", fontsize=14)
-plt.show()
-```
+
 <img src="https://user-images.githubusercontent.com/71831714/105040354-16968900-5aa5-11eb-90bc-08845657fa94.png" width='400'></img>
 
 #### 2) 컬럼별 분포도 확인
-```python3
-var = socar.columns.values
 
-t0 = socar.loc[socar['fraud_YN']==0]
-t1 = socar.loc[socar['fraud_YN']==1]
-
-sns.set_style('whitegrid')
-plt.figure()
-fig,ax = plt.subplots(7,4,figsize=(16,28))
-
-for i, feature in enumerate(var):
-    plt.subplot(7,4,i+1)
-    sns.kdeplot(t0[feature], bw=0.5, label = 'fraud_0')
-    sns.kdeplot(t1[feature], bw=0.5, label = 'fraud_1')
-
-    plt.xlabel(feature,fontsize=12)
-    locs, labels = plt.xticks()
-
-    plt.tick_params(axis='both', which = 'major', labelsize=12)
-
-plt.show()
-```
 <img src="https://user-images.githubusercontent.com/71831714/104717879-5b50b600-576d-11eb-9417-b8a123987454.png" width='600'></img>
 
 #### 3) 상관관계 히트맵
-```python3
-mask = np.zeros_like(socar.corr(), dtype=np.bool)
-mask[np.triu_indices_from(mask)] = True
 
-# Set up the matplotlib figure
-f, ax = plt.subplots(figsize=(18, 15))
-
-# Generate a custom diverging colormap
-cmap = sns.diverging_palette(220, 10, as_cmap=True)
-
-# Draw the heatmap with the mask and correct aspect ratio
-sns.heatmap(socar.corr(), mask=mask, cmap=cmap, vmax=.3, center=0,
-            square=True, linewidths=.5, cbar_kws={"shrink": .5});
-```
 <img src="https://user-images.githubusercontent.com/71831714/104718021-9652e980-576d-11eb-868f-03c3c7843e5e.png" width='600'></img>
 
 #### 4) 다중공선성
-```python3
-pd.DataFrame({"VIF Factor": [variance_inflation_factor(socar.values, idx) 
-                             for idx in range(socar.shape[1])], "features": socar.columns})
-```
+
 <img src="https://user-images.githubusercontent.com/71831714/104718280-fea1cb00-576d-11eb-9ed3-d63b4d36eec4.png" width='200'></img>
 
 #### 5) 변수 관찰
-```python3
-def make_graph(column):
-    fig,ax = plt.subplots(2, 2, figsize=(20,12))
 
-    t0 = socar[socar['fraud_YN']==0]
-    t1 = socar[socar['fraud_YN']==1]
-
-    plt.subplot(2,2,1)
-    ax0 = sns.countplot(column, data=socar[socar['fraud_YN']==0])
-    for p in ax0.patches:
-        count = p.get_height()
-        x = p.get_x() 
-        y = p.get_y() + p.get_height()
-        ax0.annotate(count, (x, y))
-    plt.title("non-fraud {}".format(column))    
-
-    plt.subplot(2,2,2)
-    ax1 = sns.countplot(column, data=socar[socar['fraud_YN']==1])
-    for p in ax1.patches:
-        count = p.get_height()
-        x = p.get_x() + 0.3
-        y = p.get_y() + p.get_height()
-        ax1.annotate(count, (x, y))
-    plt.title("fraud {}".format(column))    
-
-    plt.subplot(2,2,3)
-    socar_df[socar_df['fraud_YN']==1][column].value_counts().plot.pie(autopct='%1.1f%%')
-    plt.title("fraud {}".format(column))    
-
-    plt.subplot(2,2,4)
-    sns.kdeplot(t0[column], bw=0.5, label = 'non-fraud')
-    sns.kdeplot(t1[column], bw=0.5, label = 'fraud')
-    plt.title("fraud vs non-fraud")   
-
-    plt.show()
-
-make_graph('accident_hour')
-```
 <img src="https://user-images.githubusercontent.com/71831714/105041042-dedc1100-5aa5-11eb-98f2-f05fed413e7a.png" width='600'></img>
 
 ## 2. Preprocessing 
@@ -280,25 +197,3 @@ Imbalanced Data 처리를 위한 다양한 샘플링 기법 시도
 - Random Under Sampling이 다른 샘플링 기법들보다 좋은 Recall 성능을 보여준 이유에 대해 추가 학습 예정
 - 차원을 축소함으로서 속도(약 10% 차이) 뿐만 아니라 성능이 다소 향상됨(약 5% 차이)
 - 사용해보지 못 한 다양한 Hyper Parameters(class_weight, max_features, etc...)에 대해 추가 학습 후 적용해보려고 함
-
-## 함께한 분석가 :thumbsup:
-
-- 김성준
-  - EDA, Preprocessing, Modulization, Modeling, Readme
-  - GitHub: https://github.com/alltimeno1
-    
-- 김미정 
-  - EDA, Preprocessing,Modeling, ppt
-  - GitHub: https://github.com/LeilaYK
-  
-- 이정려
-  - EDA, Preprocessing,Modeling, ppt
-  - GitHub: https://github.com/jungryo
-  
-- 전예나
-  - EDA, Preprocessing,Modeling, ppt, presentation
-  - GitHub: https://github.com/Yenabeam
-
-## 참고 자료
-1) https://scikit-learn.org/stable/supervised_learning.html#supervised-learning
-2)
