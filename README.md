@@ -26,9 +26,11 @@
 3주차(1/12 ~ 1/18) - 모델 평가 성능 정리, 모델링 과정 모듈화 진행, 최종 발표 및 PPT 작성, Github 정리
 
 ### 목표 설정
-- 사전에 전달받은 모델 평가 점수표보다 높은 성적 달성
+- 1차 목표 : 사전에 전달받은 모델 평가 점수표보다 높은 성적 달성
 
 <img src="https://user-images.githubusercontent.com/71831714/105158927-de00b900-5b51-11eb-89cd-5992f90909cb.jpg" width='800'></img>
+
+- 최종 목표 : 데이터 불균형으로 인한 과적합을 최소화한 모델 구축
 
 ### 역할
 공통 : 데이터 관찰, 다양한 전처리 및 모델링 조사 및 시도 후 의견 공유
@@ -41,19 +43,12 @@
 
 ### 데이터
 - 본 프로젝트는 쏘카로부터 데이터를 제공받아 진행된 프로젝트입니다. 
-```python
-# 데이터 불러오기 
-socar_df = pd.read_csv("insurance_fraud_detect_data.csv")
-pd.set_option('display.max_columns', len(socar_df.columns))
-socar = socar_df.copy()
-```
 
 ## 1. EDA
 
 ### 1-1. SweetViz
 
 <img src="https://user-images.githubusercontent.com/71831714/104716672-97831700-576b-11eb-80e5-867e81d60082.png" width='800'></img>
-
 
 ### 1-2. Seaborn
 
